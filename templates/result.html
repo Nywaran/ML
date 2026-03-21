@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="intro">
+    <h2>Resultado de la Predicción</h2>
+</section>
+
+<hr style="border: 0; border-top: 1px solid #333; margin: 2rem 0;">
+
+<div class="result-container">
+    {% if resultado == 1 %}
+    <div class="result-card">
+        <p class="result-icon">&#10003;</p>
+        <h2>El cliente SÍ comprará</h2>
+        <p class="result-prob">Probabilidad de compra: <strong>{{ probabilidad }}%</strong></p>
+    </div>
+    {% else %}
+    <div class="result-card">
+        <p class="result-icon">&#10007;</p>
+        <h2>El cliente NO comprará</h2>
+        <p class="result-prob">Probabilidad de compra: <strong>{{ probabilidad }}%</strong></p>
+    </div>
+    {% endif %}
+
+    <br>
+    <a href="/LogisticRegression/" class="btn-back">Volver a predecir</a>
+</div>
+{% endblock %}

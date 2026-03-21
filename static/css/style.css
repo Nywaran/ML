@@ -1,0 +1,189 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid #333;
+}
+
+h1 {
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+nav a {
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+
+nav a:hover { color: #ffffff; }
+
+main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+    color: #cccccc;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    border: 1px solid #333;
+    padding: 1.5rem;
+    transition: background 0.3s ease;
+}
+
+.card:hover {
+    background: #111;
+    border-color: #555;
+}
+
+.card h3 {
+    margin-top: 0;
+    border-left: 3px solid #ffffff;
+    padding-left: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.8rem;
+    border-top: 1px solid #333;
+    color: #666;
+}
+
+.casos-uso {
+    margin-top: 40px;
+    padding: 20px;
+}
+
+/* Formulario */
+.form-container {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.form-group { margin-bottom: 1.4rem; }
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #aaaaaa;
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 14px;
+    background: #111;
+    border: 1px solid #333;
+    color: #ffffff;
+    font-size: 15px;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #ffffff;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 0.5rem;
+    background: #ffffff;
+    color: #000000;
+    border: none;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+button[type="submit"]:hover { background: #cccccc; }
+
+/* Resultado */
+.result-container {
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.result-card {
+    border: 1px solid #333;
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.result-icon {
+    font-size: 3rem;
+    margin: 0 0 1rem 0;
+    color: #ffffff;
+}
+
+.result-card h2 {
+    margin: 0 0 1rem 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+.result-prob {
+    color: #aaaaaa;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.btn-back {
+    display: inline-block;
+    padding: 10px 28px;
+    border: 1px solid #555;
+    color: #aaaaaa;
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-back:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+}
