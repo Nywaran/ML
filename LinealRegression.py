@@ -1,22 +1,24 @@
 import pandas as pd
-import matplotlib.pyplot as plt
-import io
-import base64
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 from sklearn.linear_model import LinearRegression
-
-data = {
-    "Study Hours": [10, 15, 12, 8, 14, 5, 16, 7, 11, 13, 9, 4, 18, 3, 17, 6, 14, 2, 20, 1],
-    "Final Grade": [3.8, 4.2, 3.6, 3, 4.5, 2.5, 4.8, 2.8, 3.7, 4, 3.2, 2.2, 5, 1.8, 4.9, 2.7, 4.4, 1.5, 5, 1]
-}
-
-df = pd.DataFrame(data)
-
-x= df[["Study Hours"]]
-y= df[["Final Grade"]]
-
+ 
+data = pd.read_csv('gold_futures_timeseries.csv')
+ 
+X = data[['open', 'high', 'low', 'volume']]
+y = data['close']
+ 
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+ 
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+ 
 model = LinearRegression()
-model.fit(x,y)
-
-def calculateGrade(hours):
-    result = model.predict([[hours]])[0]
-    return result 
+model.fit(X_train_scaled, y_train)
+ 
+def predict(open_price, high, low, volume):
+    client = pd.DataFrame([[open_price, high, low, volume]],
+                          columns=['open', 'high', 'low', 'volume'])
+    client_scaled = scaler.transform(client)
+    result = model.predict(client_scaled)[0]
+    return round(float(result), 2)

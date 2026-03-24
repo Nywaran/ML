@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+ 
+{% block content %}
+<section class="intro">
+    <h2>Use Case 4 — Education</h2>
+    <p>How Machine Learning is personalizing the way students learn.</p>
+</section>
+ 
+<hr style="border: 0; border-top: 1px solid #333; margin: 2rem 0;">
+ 
+<div class="use-case-container">
+    <div class="use-case-block">
+        <h3>Problem Description</h3>
+        <p>In education, Machine Learning is used to personalize learning experiences. By analyzing student performance data, models can identify which topics a student struggles with and recommend specific content, exercises, or study paths to improve their results.</p>
+    </div>
+ 
+    <div class="use-case-grid">
+        <div class="use-case-card">
+            <h4>Type of Machine Learning</h4>
+            <p>Supervised and Reinforcement Learning — models learn from student interaction patterns and continuously improve their recommendations.</p>
+        </div>
+        <div class="use-case-card">
+            <h4>Input Data</h4>
+            <p>Student grades, time spent on each topic, exercise completion rates, error patterns, and learning pace.</p>
+        </div>
+        <div class="use-case-card">
+            <h4>Expected Output</h4>
+            <p>A personalized study plan with recommended content, exercises, and estimated time to master each topic.</p>
+        </div>
+        <div class="use-case-card">
+            <h4>Real-World Relevance</h4>
+            <p>Every student learns differently. ML-powered platforms like Duolingo and Khan Academy use these models to adapt content in real time, improving learning outcomes significantly.</p>
+        </div>
+    </div>
+</div>
+ 
+<div style="text-align:center; margin-top: 2rem;">
+    <a href="/" class="btn-back">← Back to Home</a>
+</div>
+{% endblock %}

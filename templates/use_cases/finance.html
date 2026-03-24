@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+ 
+{% block content %}
+<section class="intro">
+    <h2>Use Case 2 — Finance</h2>
+    <p>How Machine Learning is detecting fraud and protecting financial systems.</p>
+</section>
+ 
+<hr style="border: 0; border-top: 1px solid #333; margin: 2rem 0;">
+ 
+<div class="use-case-container">
+    <div class="use-case-block">
+        <h3>Problem Description</h3>
+        <p>In finance, Machine Learning is applied to detect fraudulent transactions in real time. By analyzing spending patterns and user behavior, models can identify suspicious activity in milliseconds and alert both the bank and the customer before any damage occurs.</p>
+    </div>
+ 
+    <div class="use-case-grid">
+        <div class="use-case-card">
+            <h4>Type of Machine Learning</h4>
+            <p>Supervised Learning — models are trained with historical transaction data labeled as fraudulent or legitimate.</p>
+        </div>
+        <div class="use-case-card">
+            <h4>Input Data</h4>
+            <p>Transaction amount, location, time, merchant type, user spending history, and device information.</p>
+        </div>
+        <div class="use-case-card">
+            <h4>Expected Output</h4>
+            <p>A binary classification: legitimate transaction (0) or fraudulent transaction (1), with a confidence probability.</p>
+        </div>
+        <div class="use-case-card">
+            <h4>Real-World Relevance</h4>
+            <p>Financial fraud causes billions of dollars in losses every year. ML systems can process millions of transactions per second, making real-time fraud detection possible at scale.</p>
+        </div>
+    </div>
+</div>
+ 
+<div style="text-align:center; margin-top: 2rem;">
+    <a href="/use-cases/cybersecurity" class="btn-back">Next Use Case →</a>
+</div>
+{% endblock %}

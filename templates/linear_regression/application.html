@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+ 
+{% block content %}
+<section class="intro">
+    <h2>Linear Regression — Application</h2>
+    <p>Predicting the closing price of gold using real market data.</p>
+</section>
+ 
+<hr style="border: 0; border-top: 1px solid #333; margin: 2rem 0;">
+ 
+<div class="use-case-container">
+ 
+    <div class="use-case-block">
+        <h3>Problem Description</h3>
+        <p>This application uses a real dataset of gold futures to predict the closing price of gold based on historical market data. Gold is one of the most traded financial assets in the world, and being able to predict its price is valuable for investors and financial analysts.</p>
+    </div>
+ 
+    <div class="use-case-block">
+        <h3>Dataset</h3>
+        <p>The dataset contains 1,169 daily records of gold futures from 2021 to 2024, including opening price, highest and lowest price of the day, trading volume, and technical indicators such as moving averages and RSI.</p>
+    </div>
+ 
+    <div class="use-case-block">
+        <h3>Variables Used</h3>
+        <p><strong>Independent variables (inputs):</strong> opening price, highest price, lowest price, and trading volume.<br>
+        <strong>Dependent variable (output):</strong> closing price of gold (USD).</p>
+    </div>
+ 
+</div>
+ 
+<hr style="border: 0; border-top: 1px solid #333; margin: 2rem 0;">
+ 
+<div class="form-container">
+    <h3 style="text-align:center; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 2px;">Predict Gold Closing Price</h3>
+    <p style="text-align:center; color:#aaa; margin-bottom: 2rem;">Enter the market data below to predict the closing price of gold for that day.</p>
+ 
+    <form action="/linear-regression/application" method="POST">
+        <div class="form-group">
+            <label>Opening Price (USD)</label>
+            <input type="number" step="0.01" name="open" placeholder="e.g. 1825.50" required>
+        </div>
+        <div class="form-group">
+            <label>Highest Price of the Day (USD)</label>
+            <input type="number" step="0.01" name="high" placeholder="e.g. 1840.00" required>
+        </div>
+        <div class="form-group">
+            <label>Lowest Price of the Day (USD)</label>
+            <input type="number" step="0.01" name="low" placeholder="e.g. 1810.00" required>
+        </div>
+        <div class="form-group">
+            <label>Trading Volume</label>
+            <input type="number" name="volume" placeholder="e.g. 120" required>
+        </div>
+        <button type="submit">Predict</button>
+    </form>
+ 
+    {% if prediction is not none %}
+    <div class="result-card" style="margin-top: 2rem;">
+        <p class="result-icon">&#9651;</p>
+        <h2>Predicted Closing Price</h2>
+        <p class="result-prob">$ <strong>{{ prediction }} USD</strong></p>
+        <p style="color:#666; font-size:0.85rem; margin-top:0.5rem;">Result Interpretation: The model estimates this closing price based on the market data entered. The closer this value is to the real market price, the better the model is performing.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+ 
+{% block content %}
+<section class="intro">
+    <h2>Linear Regression — Basic Concepts</h2>
+    <p>Understanding the fundamentals of one of the most important supervised learning algorithms.</p>
+</section>
+ 
+<hr style="border: 0; border-top: 1px solid #333; margin: 2rem 0;">
+ 
+<div class="use-case-container">
+ 
+    <div class="use-case-block">
+        <h3>What is Linear Regression?</h3>
+        <p>Linear regression is a supervised learning algorithm that predicts a continuous numerical value based on one or more input variables. It works by finding the best straight line that fits the relationship between the input data and the expected output.</p>
+    </div>
+ 
+    <div class="use-case-block">
+        <h3>Independent and Dependent Variables</h3>
+        <p>The independent variable is the input — the data we already know. The dependent variable is the output — the value we want to predict. For example, if we want to predict the price of gold based on its trading volume, the volume is the independent variable and the price is the dependent variable.</p>
+    </div>
+ 
+    <div class="use-case-block">
+        <h3>Regression Line, Slope and Intercept</h3>
+        <p>The regression line is the straight line that best fits the data. It is defined by two values: the slope, which indicates how much the output changes when the input increases by one unit, and the intercept, which is the value of the output when the input is zero.</p>
+    </div>
+ 
+    <div class="use-case-block">
+        <h3>Training Data</h3>
+        <p>Training data is the dataset used to teach the model. The algorithm analyzes this data to find the line that minimizes the error between the predicted values and the real values.</p>
+    </div>
+ 
+    <div class="use-case-block">
+        <h3>Example of Application</h3>
+        <p>A simple example: predicting a student's final grade based on the number of hours studied. The more hours studied (independent variable), the higher the expected grade (dependent variable). The regression model finds the line that best represents this relationship.</p>
+    </div>
+ 
+</div>
+ 
+<div style="text-align:center; margin-top: 2rem;">
+    <a href="/linear-regression/application" class="btn-back">See Application →</a>
+</div>
+{% endblock %}

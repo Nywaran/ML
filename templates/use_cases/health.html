@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+ 
+{% block content %}
+<section class="intro">
+    <h2>Use Case 1 — Health</h2>
+    <p>How Machine Learning is transforming early disease detection.</p>
+</section>
+ 
+<hr style="border: 0; border-top: 1px solid #333; margin: 2rem 0;">
+ 
+<div class="use-case-container">
+    <div class="use-case-block">
+        <h3>Problem Description</h3>
+        <p>Machine Learning is used in healthcare to detect diseases early through the analysis of medical images such as X-rays and MRIs. Models trained on thousands of images can identify patterns that are difficult for the human eye to detect, helping doctors make faster and more accurate diagnoses.</p>
+    </div>
+ 
+    <div class="use-case-grid">
+        <div class="use-case-card">
+            <h4>Type of Machine Learning</h4>
+            <p>Supervised Learning — the model is trained with labeled images (disease / no disease) to learn to classify new cases.</p>
+        </div>
+        <div class="use-case-card">
+            <h4>Input Data</h4>
+            <p>Medical images such as X-rays, MRIs, and CT scans, along with patient history and demographic data.</p>
+        </div>
+        <div class="use-case-card">
+            <h4>Expected Output</h4>
+            <p>A classification indicating whether the patient has a disease, along with a probability score and the affected area highlighted in the image.</p>
+        </div>
+        <div class="use-case-card">
+            <h4>Real-World Relevance</h4>
+            <p>Early detection of diseases like cancer significantly increases survival rates. ML models can analyze thousands of images per day, reducing diagnosis time and human error.</p>
+        </div>
+    </div>
+</div>
+ 
+<div style="text-align:center; margin-top: 2rem;">
+    <a href="/use-cases/finance" class="btn-back">Next Use Case →</a>
+</div>
+{% endblock %}
+ 

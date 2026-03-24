@@ -1,33 +1,43 @@
+# Importacion de librerias
 from flask import Flask, render_template, request
-import RegresionLogistica
+import LinealRegression
  
 app = Flask(__name__)
  
 @app.route('/')
 def home():
     return render_template('index.html')
+
+# Llamamos los casos de uso, uno por uno
+@app.route('/use-cases/health')
+def use_case_health():
+    return render_template('use_cases/health.html')
  
-@app.route('/LinearRegression/')
-def calculateGrade():
-    import LinealRegression
-    result = LinealRegression.calculateGrade(10)
-    return str(result)
+@app.route('/use-cases/finance')
+def use_case_finance():
+    return render_template('use_cases/finance.html')
  
-@app.route('/LogisticRegression/', methods=['GET', 'POST'])
-def logistic():
+@app.route('/use-cases/cybersecurity')
+def use_case_cybersecurity():
+    return render_template('use_cases/cybersecurity.html')
+ 
+@app.route('/use-cases/education')
+def use_case_education():
+    return render_template('use_cases/education.html')
+ 
+# Llamamos a la regresión lineal pero solo los conceptos
+@app.route('/linear-regression/concepts')
+def lr_concepts():
+    return render_template('linear_regression/concepts.html')
+ 
+# Llamamos a la apliacaión de la regresión lineal y el dataset
+@app.route('/linear-regression/application', methods=['GET', 'POST'])
+def lr_application():
+    prediction = None
     if request.method == 'POST':
-        edad      = float(request.form['edad'])
-        ingreso   = float(request.form['ingreso_mensual'])
-        visitas   = float(request.form['visitas_web_mes'])
-        tiempo    = float(request.form['tiempo_sitio_min'])
-        compras   = float(request.form['compras_previas'])
-        descuento = float(request.form['descuento_usado'])
- 
-        resultado, probabilidad = RegresionLogistica.predecir(
-            edad, ingreso, visitas, tiempo, compras, descuento
-        )
-        return render_template('result.html',
-                               resultado=resultado,
-                               probabilidad=probabilidad)
-    return render_template('logistic.html')
- 
+        open_price = float(request.form['open'])
+        high       = float(request.form['high'])
+        low        = float(request.form['low'])
+        volume     = float(request.form['volume'])
+        prediction = LinealRegression.predict(open_price, high, low, volume)
+    return render_template('linear_regression/application.html', prediction=prediction)
