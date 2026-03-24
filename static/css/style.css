@@ -214,7 +214,6 @@ button[type="submit"]:hover {
     color: #ffffff;
 }
 
-
 .dropdown {
     position: relative;
     display: inline-block;
@@ -264,7 +263,6 @@ button[type="submit"]:hover {
     background: #222;
     color: #ffffff;
 }
-
 
 .use-case-container {
     max-width: 800px;
@@ -324,7 +322,6 @@ button[type="submit"]:hover {
     margin: 0;
 }
 
-
 .card-link {
     display: inline-block;
     margin-top: 1rem;
@@ -359,4 +356,180 @@ button[type="submit"]:hover {
 
 .use-case-images img:hover {
     filter: grayscale(0%);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-box {
+    background: #111;
+    border: 1px solid #333;
+    padding: 3rem 2.5rem;
+    max-width: 440px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.modal-close:hover {
+    color: #ffffff;
+}
+
+.modal-title {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+    margin: 0 0 1.5rem;
+    color: #ffffff;
+}
+
+.modal-value {
+    font-size: 2rem;
+    font-weight: 500;
+    margin: 0 0 0.5rem;
+    color: #ffffff;
+}
+
+.modal-value span {
+    font-size: 1rem;
+    color: #aaaaaa;
+}
+
+.modal-note {
+    color: #555;
+    font-size: 0.82rem;
+    margin-top: 1.2rem;
+    line-height: 1.7;
+}
+
+.section-divider {
+    border: 0;
+    border-top: 1px solid #333;
+    margin: 2rem 0;
+}
+
+.graph-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.graph-container img {
+    width: 100%;
+    max-width: 800px;
+    border: 1px solid #333;
+}
+
+.graph-caption {
+    color: #aaaaaa;
+    line-height: 1.8;
+    font-size: 0.95rem;
+    border-left: 3px solid #333;
+    padding-left: 1rem;
+}
+
+.form-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.form-section-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.form-section-subtitle {
+    text-align: center;
+    color: #aaaaaa;
+    margin-bottom: 2rem;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.form-guide {
+    border: 1px solid #222;
+    padding: 1.8rem;
+}
+
+.form-guide h4 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    margin: 0 0 1rem;
+    border-left: 3px solid #fff;
+    padding-left: 10px;
+}
+
+.form-guide p {
+    color: #aaaaaa;
+    font-size: 0.88rem;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+}
+
+.form-guide-note {
+    color: #555;
+    font-size: 0.80rem;
+    margin-top: 1.2rem;
+    line-height: 1.7;
+}
+
+.guide-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+}
+
+.guide-table thead tr {
+    border-bottom: 1px solid #333;
+}
+
+.guide-table th {
+    text-align: left;
+    padding: 6px 8px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.guide-table tbody tr {
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.guide-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.guide-table td {
+    padding: 8px;
+    color: #aaaaaa;
 }
