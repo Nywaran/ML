@@ -40,8 +40,8 @@ Machine Learning/
 
 ## Features
 
-- **Home** — Introduction to Machine Learning with an overview of the four use cases
-- **ML Use Cases** — Four detailed pages covering Health, Finance, Cybersecurity, and Education
+- **Home** — Introduction to machine learning with an overview of the four use cases
+- **ML Use Cases** — Four detailed pages covering health, finance, cybersecurity and education
 - **Linear Regression — Basic Concepts** — Explanation of key concepts such as variables, regression line, slope, and intercept
 - **Linear Regression — Application** — Real dataset, regression graph, and interactive prediction form for gold futures closing price
 
@@ -50,7 +50,7 @@ Machine Learning/
 ## Dataset
 
 - **Gold Futures Time Series** — 1,169 daily records from 2021 to 2024
-- Source: https://www.kaggle.com)
+- Source: https://www.kaggle.com
 - Variables used: opening price, highest price, lowest price, trading volume
 - Target variable: closing price (USD)
 
@@ -74,11 +74,6 @@ python -m venv .venv
 **Windows:**
 ```bash
 .venv\Scripts\activate
-```
-
-**Mac / Linux:**
-```bash
-source .venv/bin/activate
 ```
 
 ### 4. Install dependencies
