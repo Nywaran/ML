@@ -1,0 +1,48 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="intro">
+    <h2>Ridge Classifier — Basic Concepts</h2>
+    <p>Understanding how Ridge Classifier solves classification problems using L2 regularization.</p>
+</section>
+
+<hr class="section-divider">
+
+<div class="use-case-container">
+
+    <div class="use-case-block">
+        <h3>What is Ridge Classifier?</h3>
+        <p>Ridge Classifier is a supervised learning algorithm for classification problems. It is based on Ridge Regression, which uses L2 regularization to reduce overfitting. Instead of predicting a probability like logistic regression, Ridge Classifier converts the classification problem into a regression problem internally and then assigns the class based on the result.</p>
+        <p>El Ridge Classifier es un algoritmo de aprendizaje supervisado para problemas de clasificación. Está basado en la Regresión Ridge, que usa regularización L2 para reducir el sobreajuste. En lugar de predecir una probabilidad como la regresión logística, el Ridge Classifier convierte el problema de clasificación en un problema de regresión internamente y luego asigna la clase basándose en el resultado.</p>
+    </div>
+
+    <div class="use-case-block">
+        <h3>How it Works</h3>
+        <p>Ridge Classifier works by fitting a Ridge Regression model to the target variable and then using the sign of the predicted value to determine the class. The L2 regularization parameter, called alpha, controls how much the model penalizes large coefficients. A higher alpha means more regularization and a simpler model.</p>
+        <p>El Ridge Classifier funciona ajustando un modelo de Regresión Ridge a la variable objetivo y luego usando el signo del valor predicho para determinar la clase. El parámetro de regularización L2, llamado alpha, controla cuánto penaliza el modelo los coeficientes grandes. Un alpha más alto significa más regularización y un modelo más simple.</p>
+    </div>
+
+    <div class="use-case-block">
+        <h3>Main Characteristics</h3>
+        <p>Ridge Classifier is fast to train, works well with high-dimensional data, and is less prone to overfitting than standard classifiers. It does not output probabilities directly, which makes it less interpretable than logistic regression in terms of confidence scores.</p>
+        <p>El Ridge Classifier es rápido de entrenar, funciona bien con datos de alta dimensionalidad y es menos propenso al sobreajuste que los clasificadores estándar. No devuelve probabilidades directamente, lo que lo hace menos interpretable que la regresión logística en términos de puntuaciones de confianza.</p>
+    </div>
+
+    <div class="use-case-block">
+        <h3>Advantages and Limitations</h3>
+        <p>Advantages: fast training, handles multicollinearity well, good performance with large datasets. Limitations: does not output probabilities, less flexible than other classifiers, assumes a linear decision boundary.</p>
+        <p>Ventajas: entrenamiento rápido, maneja bien la multicolinealidad, buen rendimiento con datasets grandes. Limitaciones: no devuelve probabilidades, menos flexible que otros clasificadores, asume una frontera de decisión lineal.</p>
+    </div>
+
+    <div class="use-case-block">
+        <h3>Real-World Use Example</h3>
+        <p>Ridge Classifier can be used in text classification tasks such as spam detection or sentiment analysis, where the dataset has many features and regularization helps prevent the model from memorizing the training data.</p>
+        <p>El Ridge Classifier puede usarse en tareas de clasificación de texto como detección de spam o análisis de sentimiento, donde el dataset tiene muchas variables y la regularización ayuda a evitar que el modelo memorice los datos de entrenamiento.</p>
+    </div>
+
+</div>
+
+<div style="text-align:center; margin-top:2rem;">
+    <a href="/ridge-classifier/application" class="btn-back">See Application →</a>
+</div>
+{% endblock %}
