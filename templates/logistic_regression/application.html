@@ -1,0 +1,159 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="intro">
+    <h2>Logistic Regression — Application</h2>
+    <p>Predicting loan default risk using real bank loan data.</p>
+</section>
+
+<hr class="section-divider">
+
+<div class="use-case-container">
+    <div class="use-case-block">
+        <h3>Problem Description</h3>
+        <p>We will use a dataset of bank loan records to predict whether a client will default on their loan payment. Through the identification of various parameters, economic losses can be reduced.</p>
+        <p>Usaremos un dataset de registros de préstamos bancarios para predecir si un cliente incumplirá el pago de su préstamo. Gracias a la identificación de varios parámetros se pueden reducir pérdidas económicas.</p>
+    </div>
+    <div class="use-case-block">
+        <h3>Dataset Explanation</h3>
+        <p>This dataset has 255,347 bank loan records, including personal, financial, and employment information. Each record is labeled with 0 and 1. 0 for those who paid and 1 for those who defaulted.</p>
+        <p>Este dataset tiene 255.347 registros de préstamos bancarios, incluye información personal, financiera y laboral. Cada registro está etiquetado con 0 y 1. 0 para los que cumplieron y 1 para los que incumplieron.</p>
+    </div>
+    <div class="use-case-block">
+        <h3>Variables Used</h3>
+        <p><strong>Independent variables (inputs):</strong> age, income, loan amount, credit score, months employed, number of credit lines, interest rate, loan term, and debt-to-income ratio.<br>
+        <strong>Dependent variable (output):</strong> Default — 0 means the client will pay, 1 means the client will default.</p>
+    </div>
+    <div class="use-case-block">
+        <h3>Data Preparation</h3>
+        <p>The dataset was loaded using pandas. Categorical columns such as Education, EmploymentType, MaritalStatus, LoanPurpose and binary columns such as HasMortgage, HasDependents, HasCoSigner were encoded using Label Encoding. The data was split into 80% for training and 20% for testing using train_test_split with random state 42. StandardScaler was applied to normalize all numerical input variables.</p>
+        <p>El dataset fue cargado con pandas. Las columnas categóricas como Education, EmploymentType, MaritalStatus, LoanPurpose y las columnas binarias como HasMortgage, HasDependents, HasCoSigner fueron codificadas usando Label Encoding. Los datos fueron divididos en 80% para entrenamiento y 20% para prueba usando train_test_split con random state 42. Se aplicó StandardScaler para normalizar todas las variables numéricas de entrada.</p>
+    </div>
+</div>
+
+<hr class="section-divider">
+
+<div class="use-case-container">
+    <div class="use-case-block">
+        <h3>Evaluation Metrics</h3>
+    </div>
+    <div class="use-case-grid">
+        <div class="use-case-card">
+            <h4>Accuracy</h4>
+            <p>{{ metrics.accuracy }}%</p>
+        </div>
+        <div class="use-case-card">
+            <h4>Precision</h4>
+            <p>{{ metrics.precision }}%</p>
+        </div>
+        <div class="use-case-card">
+            <h4>Recall</h4>
+            <p>{{ metrics.recall }}%</p>
+        </div>
+        <div class="use-case-card">
+            <h4>F1-Score</h4>
+            <p>{{ metrics.f1 }}%</p>
+        </div>
+    </div>
+
+    <div class="use-case-block" style="margin-top:2rem;">
+        <h3>Confusion Matrix</h3>
+    </div>
+    <div class="graph-container">
+        <img src="{{ url_for('static', filename='images/lr_confusion_matrix.png') }}" alt="Confusion Matrix">
+    </div>
+
+    <div class="use-case-block">
+        <h3>ROC Curve / AUC</h3>
+    </div>
+    <div class="graph-container">
+        <img src="{{ url_for('static', filename='images/lr_roc_curve.png') }}" alt="ROC Curve">
+    </div>
+</div>
+
+<hr class="section-divider">
+
+<div class="form-section">
+    <h3 class="form-section-title">Predict Loan Default</h3>
+    <p class="form-section-subtitle">Enter the client's financial information to predict whether they will default on their loan.</p>
+
+    <div class="form-grid">
+        <form action="/logistic-regression/application" method="POST">
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number" name="age" placeholder="e.g. 35" required>
+            </div>
+            <div class="form-group">
+                <label>Income (USD/year)</label>
+                <input type="number" name="income" placeholder="e.g. 55000" required>
+            </div>
+            <div class="form-group">
+                <label>Loan Amount (USD)</label>
+                <input type="number" name="loan_amount" placeholder="e.g. 20000" required>
+            </div>
+            <div class="form-group">
+                <label>Credit Score</label>
+                <input type="number" name="credit_score" placeholder="e.g. 650" required>
+            </div>
+            <div class="form-group">
+                <label>Months Employed</label>
+                <input type="number" name="months_employed" placeholder="e.g. 24" required>
+            </div>
+            <div class="form-group">
+                <label>Number of Credit Lines</label>
+                <input type="number" name="num_credit_lines" placeholder="e.g. 3" required>
+            </div>
+            <div class="form-group">
+                <label>Interest Rate (%)</label>
+                <input type="number" step="0.01" name="interest_rate" placeholder="e.g. 12.5" required>
+            </div>
+            <div class="form-group">
+                <label>Loan Term (months)</label>
+                <input type="number" name="loan_term" placeholder="e.g. 36" required>
+            </div>
+            <div class="form-group">
+                <label>Debt-to-Income Ratio</label>
+                <input type="number" step="0.01" name="dti_ratio" placeholder="e.g. 0.35" required>
+            </div>
+            <button type="submit">Predict</button>
+        </form>
+
+        <div class="form-guide">
+            <h4>How to use this form</h4>
+            <p>Enter the client's financial data to predict whether they will default on their loan. Use the typical ranges below as a guide:</p>
+            <table class="guide-table">
+                <thead><tr><th>Field</th><th>Typical Range</th></tr></thead>
+                <tbody>
+                    <tr><td>Age</td><td>18 — 80</td></tr>
+                    <tr><td>Income</td><td>$15,000 — $200,000</td></tr>
+                    <tr><td>Loan Amount</td><td>$1,000 — $250,000</td></tr>
+                    <tr><td>Credit Score</td><td>300 — 850</td></tr>
+                    <tr><td>Months Employed</td><td>0 — 120</td></tr>
+                    <tr><td>Credit Lines</td><td>1 — 10</td></tr>
+                    <tr><td>Interest Rate</td><td>2% — 25%</td></tr>
+                    <tr><td>Loan Term</td><td>12 — 60 months</td></tr>
+                    <tr><td>DTI Ratio</td><td>0.10 — 0.90</td></tr>
+                </tbody>
+            </table>
+            <p class="form-guide-note">The model was trained with 255,347 real loan records. Values outside these ranges may produce less accurate predictions.</p>
+        </div>
+    </div>
+</div>
+
+{% if prediction is not none %}
+<div id="modal-overlay" class="modal-overlay">
+    <div class="modal-box">
+        <button class="modal-close" onclick="document.getElementById('modal-overlay').style.display='none'">&#10005;</button>
+        {% if prediction == 1 %}
+        <h2 class="modal-title">High Risk — Default Predicted</h2>
+        <p class="modal-value" style="color:#E24B4A;">&#9888; Default</p>
+        {% else %}
+        <h2 class="modal-title">Low Risk — No Default Predicted</h2>
+        <p class="modal-value" style="color:#5DCAA5;">&#10003; No Default</p>
+        {% endif %}
+        <p class="modal-note">Probability of default: <strong>{{ probability }}%</strong></p>
+        <p class="modal-note">The model analyzed the client's financial profile and returned this classification based on the patterns learned from 255,347 loan records.</p>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

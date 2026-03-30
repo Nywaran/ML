@@ -17,8 +17,7 @@ model = LinearRegression()
 model.fit(X_train_scaled, y_train)
 
 def predict(open_price, high, low, volume):
-    client = pd.DataFrame([[open_price, high, low, volume]],
-                          columns=['open', 'high', 'low', 'volume'])
+    client = pd.DataFrame([[open_price, high, low, volume]], columns=['open', 'high', 'low', 'volume'])
     client_scaled = scaler.transform(client)
     result = model.predict(client_scaled)[0]
     formatted = f"{float(result):,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
