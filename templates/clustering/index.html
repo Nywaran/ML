@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="intro">
+    <h2>Clustering — K-Means</h2>
+    <p>Grouping customers by age, income and spending using unsupervised learning.</p>
+</section>
+
+<hr class="section-divider">
+
+<div class="use-case-container">
+    <div class="use-case-block">
+        <h3>What is Clustering?</h3>
+        <p>Clustering is an unsupervised learning technique that groups data points based on their similarity, without using predefined labels. K-Means is one of the most popular clustering algorithms — it divides the data into K groups by minimizing the distance between each point and the center of its cluster.</p>
+    </div>
+    <div class="use-case-block">
+        <h3>Dataset</h3>
+        <p>The dataset contains 12 customers with three variables: age, monthly income, and monthly spending. The K-Means model groups them into 3 clusters based on their similarities.</p>
+    </div>
+</div>
+
+<hr class="section-divider">
+
+<div class="use-case-container">
+    <div class="use-case-block">
+        <h3>Clustering Results</h3>
+    </div>
+
+    <table class="guide-table" style="width:100%; margin-bottom:2rem;">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Income</th>
+                <th>Spending</th>
+                <th>Cluster</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in result %}
+            <tr>
+                <td>{{ row.nombre }}</td>
+                <td>{{ row.edad }}</td>
+                <td>{{ row.ingresos }}</td>
+                <td>{{ row.gasto }}</td>
+                <td>
+                    {% if row.Cluster == 0 %}
+                    <span style="color:#5DCAA5; font-weight:500;">Group 0</span>
+                    {% elif row.Cluster == 1 %}
+                    <span style="color:#EF9F27; font-weight:500;">Group 1</span>
+                    {% else %}
+                    <span style="color:#85B7EB; font-weight:500;">Group 2</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="use-case-block">
+        <h3>Cluster Summary</h3>
+    </div>
+    <div class="use-case-grid">
+        {% for cluster, count in clusterSummary.items() %}
+        <div class="use-case-card">
+            <h4>Group {{ cluster }}</h4>
+            <p>{{ count }} customers in this group.</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

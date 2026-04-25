@@ -2,13 +2,16 @@ from flask import Flask, render_template, request
 import LinealRegression
 import LogisticRegressionModel
 import RidgeClassifierModel
+import Clustering
 
 app = Flask(__name__)
 
+# ── Home ─────────────────────────────────────────────────────
 @app.route('/')
 def home():
     return render_template('index.html')
 
+# ── Use Cases ────────────────────────────────────────────────
 @app.route('/use-cases/health')
 def use_case_health():
     return render_template('use_cases/health.html')
@@ -25,7 +28,7 @@ def use_case_cybersecurity():
 def use_case_education():
     return render_template('use_cases/education.html')
 
-
+# ── Linear Regression ────────────────────────────────────────
 @app.route('/linear-regression/concepts')
 def lr_concepts():
     return render_template('linear_regression/concepts.html')
@@ -41,7 +44,7 @@ def lr_application():
         prediction = LinealRegression.predict(open_price, high, low, volume)
     return render_template('linear_regression/application.html', prediction=prediction)
 
-
+# ── Logistic Regression ──────────────────────────────────────
 @app.route('/logistic-regression/concepts')
 def log_concepts():
     return render_template('logistic_regression/concepts.html')
@@ -60,10 +63,16 @@ def log_application():
         interest_rate    = float(request.form['interest_rate'])
         loan_term        = float(request.form['loan_term'])
         dti_ratio        = float(request.form['dti_ratio'])
-        prediction, probability = LogisticRegressionModel.predict( age, income, loan_amount, credit_score, months_employed, num_credit_lines, interest_rate, loan_term, dti_ratio
+        prediction, probability = LogisticRegressionModel.predict(
+            age, income, loan_amount, credit_score, months_employed,
+            num_credit_lines, interest_rate, loan_term, dti_ratio
         )
-    return render_template('logistic_regression/application.html', prediction=prediction, probability=probability, metrics=LogisticRegressionModel.metrics)
+    return render_template('logistic_regression/application.html',
+                           prediction=prediction,
+                           probability=probability,
+                           metrics=LogisticRegressionModel.metrics)
 
+# ── Ridge Classifier ─────────────────────────────────────────
 @app.route('/ridge-classifier/concepts')
 def rc_concepts():
     return render_template('ridge_classifier/concepts.html')
@@ -82,6 +91,23 @@ def rc_application():
         interest_rate    = float(request.form['interest_rate'])
         loan_term        = float(request.form['loan_term'])
         dti_ratio        = float(request.form['dti_ratio'])
-        prediction, probability = RidgeClassifierModel.predict( age, income, loan_amount, credit_score, months_employed, num_credit_lines, interest_rate, loan_term, dti_ratio
+        prediction, probability = RidgeClassifierModel.predict(
+            age, income, loan_amount, credit_score, months_employed,
+            num_credit_lines, interest_rate, loan_term, dti_ratio
         )
-    return render_template('ridge_classifier/application.html', prediction=prediction, probability=probability, metrics=RidgeClassifierModel.metrics)
+    return render_template('ridge_classifier/application.html',
+                           prediction=prediction,
+                           probability=probability,
+                           metrics=RidgeClassifierModel.metrics)
+
+# ── Clustering ───────────────────────────────────────────────
+@app.route('/clustering')
+def clustering():
+    data = Clustering.applyClustering()
+    return render_template('clustering/index.html',
+                           result=data['result'],
+                           clusterSummary=data['clusterSummary'],
+                           centers=data['centers'])
+
+if __name__ == '__main__':
+    app.run(debug=True)
