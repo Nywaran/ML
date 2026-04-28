@@ -1,47 +1,42 @@
 {% extends 'layout.html' %}
- 
+
 {% block content %}
 <section class="intro">
     <h2>Logistic Regression — Basic Concepts</h2>
     <p>Understanding how logistic regression solves classification problems.</p>
 </section>
- 
+
 <hr class="section-divider">
- 
+
 <div class="use-case-container">
- 
+
     <div class="use-case-block">
         <h3>What is Logistic Regression?</h3>
         <p>Logistic Regression is a supervised learning algorithm used to solve classification problems. Unlike linear regression which predicts a continuous value, logistic regression predicts the probability that an input belongs to a specific class. The output is always a value between 0 and 1, which is then converted into a class label based on a defined threshold.</p>
-        <p>La Regresión Logística es un algoritmo de aprendizaje supervisado usado para resolver problemas de clasificación. A diferencia de la regresión lineal que predice un valor continuo, la regresión logística predice la probabilidad de que una entrada pertenezca a una clase específica. La salida siempre es un valor entre 0 y 1, que luego se convierte en una etiqueta de clase basándose en un umbral definido.</p>
     </div>
- 
+
     <div class="use-case-block">
         <h3>Difference between Regression and Classification</h3>
-        <p>Regression predicts a continuous numerical value, as demonstrated in the gold price example. Classification predicts a category or class. Logistic regression is a classification algorithm.</p>
-        <p>La regresión predice un valor numérico continuo, como se demostró en el ejemplo del oro. La clasificación predice una categoría o clase. La regresión logística es un algoritmo de clasificación.</p>
+        <p>Regression predicts a continuous numerical value, as demonstrated in the gold price example. Classification predicts a category or class. Logistic regression is a classification algorithm despite having the word regression in its name.</p>
     </div>
- 
+
     <div class="use-case-block">
         <h3>Binary Classification</h3>
         <p>Binary classification is a type of classification problem where the output can only be one of two possible classes. For example: spam or not spam, fraud or not fraud, default or no default. Logistic regression is specifically designed for this type of problem.</p>
-        <p>La clasificación binaria es un tipo de problema de clasificación donde la salida solo puede ser una de dos clases posibles. Por ejemplo: spam o no spam, fraude o no fraude, incumplimiento o no incumplimiento. La regresión logística está específicamente diseñada para este tipo de problema.</p>
     </div>
- 
+
     <div class="use-case-block">
         <h3>Probability Estimation and Decision Boundary</h3>
         <p>Logistic regression uses the Sigmoid function to convert any numerical value into a probability between 0 and 1. The decision boundary is the threshold that separates the two classes. By default this is 0.5 — if the predicted probability is greater than or equal to 0.5 the model predicts class 1, otherwise it predicts class 0.</p>
-        <p>La regresión logística usa la función Sigmoid para convertir cualquier valor numérico en una probabilidad entre 0 y 1. Los límites de decisión es el umbral que separa las dos clases. Por defecto este es 0.5 — si la probabilidad predicha es mayor o igual a 0.5 el modelo predice la clase 1, o si no es la clase 0.</p>
     </div>
- 
+
     <div class="use-case-block">
         <h3>Real-World Use Example</h3>
         <p>A bank uses logistic regression to predict whether a loan applicant will default on their payment. Based on variables such as income, credit score, and loan amount, the model returns a probability of default and classifies the applicant as high risk or low risk.</p>
-        <p>Un banco usa la regresión logística para predecir si un solicitante de préstamo incumplirá su pago. Basándose en variables como el ingreso, el score crediticio y el monto del préstamo, el modelo devuelve una probabilidad de incumplimiento y clasifica al solicitante como alto o bajo riesgo.</p>
     </div>
- 
+
 </div>
- 
+
 <div style="text-align:center; margin-top:2rem;">
     <a href="/logistic-regression/application" class="btn-back">See Application →</a>
 </div>

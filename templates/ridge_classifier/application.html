@@ -12,12 +12,10 @@
     <div class="use-case-block">
         <h3>Problem Description</h3>
         <p>We will use the same bank loan dataset to predict whether a client will default on their loan payment, this time using Ridge Classifier. This allows us to compare the performance of two different classification models on the same data.</p>
-        <p>Usaremos el mismo dataset de préstamos bancarios para predecir si un cliente incumplirá el pago de su préstamo, esta vez usando Ridge Classifier. Esto nos permite comparar el rendimiento de dos modelos de clasificación diferentes sobre los mismos datos.</p>
     </div>
     <div class="use-case-block">
         <h3>Dataset Explanation</h3>
         <p>The dataset contains 255,347 bank loan records with personal, financial, and employment information. Each record is labeled with 0 (no default) or 1 (default).</p>
-        <p>El dataset contiene 255.347 registros de préstamos bancarios con información personal, financiera y laboral. Cada registro está etiquetado con 0 (no incumplió) o 1 (incumplió).</p>
     </div>
     <div class="use-case-block">
         <h3>Variables Used</h3>
@@ -27,7 +25,6 @@
     <div class="use-case-block">
         <h3>Data Preparation</h3>
         <p>The same data preparation process used for Logistic Regression was applied: Label Encoding for categorical columns, train_test_split with 80/20 ratio and random state 42, and StandardScaler to normalize all numerical input variables.</p>
-        <p>Se aplicó el mismo proceso de preparación de datos usado para la Regresión Logística: Label Encoding para las columnas categóricas, train_test_split con proporción 80/20 y random state 42, y StandardScaler para normalizar todas las variables numéricas de entrada.</p>
     </div>
 </div>
 
@@ -79,48 +76,21 @@
 
     <div class="form-grid">
         <form action="/ridge-classifier/application" method="POST">
-            <div class="form-group">
-                <label>Age</label>
-                <input type="number" name="age" placeholder="e.g. 35" required>
-            </div>
-            <div class="form-group">
-                <label>Income (USD/year)</label>
-                <input type="number" name="income" placeholder="e.g. 55000" required>
-            </div>
-            <div class="form-group">
-                <label>Loan Amount (USD)</label>
-                <input type="number" name="loan_amount" placeholder="e.g. 20000" required>
-            </div>
-            <div class="form-group">
-                <label>Credit Score</label>
-                <input type="number" name="credit_score" placeholder="e.g. 650" required>
-            </div>
-            <div class="form-group">
-                <label>Months Employed</label>
-                <input type="number" name="months_employed" placeholder="e.g. 24" required>
-            </div>
-            <div class="form-group">
-                <label>Number of Credit Lines</label>
-                <input type="number" name="num_credit_lines" placeholder="e.g. 3" required>
-            </div>
-            <div class="form-group">
-                <label>Interest Rate (%)</label>
-                <input type="number" step="0.01" name="interest_rate" placeholder="e.g. 12.5" required>
-            </div>
-            <div class="form-group">
-                <label>Loan Term (months)</label>
-                <input type="number" name="loan_term" placeholder="e.g. 36" required>
-            </div>
-            <div class="form-group">
-                <label>Debt-to-Income Ratio</label>
-                <input type="number" step="0.01" name="dti_ratio" placeholder="e.g. 0.35" required>
-            </div>
+            <div class="form-group"><label>Age</label><input type="number" name="age" placeholder="e.g. 35" required></div>
+            <div class="form-group"><label>Income (USD/year)</label><input type="number" name="income" placeholder="e.g. 55000" required></div>
+            <div class="form-group"><label>Loan Amount (USD)</label><input type="number" name="loan_amount" placeholder="e.g. 20000" required></div>
+            <div class="form-group"><label>Credit Score</label><input type="number" name="credit_score" placeholder="e.g. 650" required></div>
+            <div class="form-group"><label>Months Employed</label><input type="number" name="months_employed" placeholder="e.g. 24" required></div>
+            <div class="form-group"><label>Number of Credit Lines</label><input type="number" name="num_credit_lines" placeholder="e.g. 3" required></div>
+            <div class="form-group"><label>Interest Rate (%)</label><input type="number" step="0.01" name="interest_rate" placeholder="e.g. 12.5" required></div>
+            <div class="form-group"><label>Loan Term (months)</label><input type="number" name="loan_term" placeholder="e.g. 36" required></div>
+            <div class="form-group"><label>Debt-to-Income Ratio</label><input type="number" step="0.01" name="dti_ratio" placeholder="e.g. 0.35" required></div>
             <button type="submit">Predict</button>
         </form>
 
         <div class="form-guide">
             <h4>How to use this form</h4>
-            <p>Enter the client's financial data to predict whether they will default on their loan. Use the typical ranges below as a guide:</p>
+            <p>Enter the client's financial data to predict whether they will default on their loan.</p>
             <table class="guide-table">
                 <thead><tr><th>Field</th><th>Typical Range</th></tr></thead>
                 <tbody>

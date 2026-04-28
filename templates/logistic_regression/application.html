@@ -12,12 +12,10 @@
     <div class="use-case-block">
         <h3>Problem Description</h3>
         <p>We will use a dataset of bank loan records to predict whether a client will default on their loan payment. Through the identification of various parameters, economic losses can be reduced.</p>
-        <p>Usaremos un dataset de registros de préstamos bancarios para predecir si un cliente incumplirá el pago de su préstamo. Gracias a la identificación de varios parámetros se pueden reducir pérdidas económicas.</p>
     </div>
     <div class="use-case-block">
         <h3>Dataset Explanation</h3>
         <p>This dataset has 255,347 bank loan records, including personal, financial, and employment information. Each record is labeled with 0 and 1. 0 for those who paid and 1 for those who defaulted.</p>
-        <p>Este dataset tiene 255.347 registros de préstamos bancarios, incluye información personal, financiera y laboral. Cada registro está etiquetado con 0 y 1. 0 para los que cumplieron y 1 para los que incumplieron.</p>
     </div>
     <div class="use-case-block">
         <h3>Variables Used</h3>
@@ -27,7 +25,6 @@
     <div class="use-case-block">
         <h3>Data Preparation</h3>
         <p>The dataset was loaded using pandas. Categorical columns such as Education, EmploymentType, MaritalStatus, LoanPurpose and binary columns such as HasMortgage, HasDependents, HasCoSigner were encoded using Label Encoding. The data was split into 80% for training and 20% for testing using train_test_split with random state 42. StandardScaler was applied to normalize all numerical input variables.</p>
-        <p>El dataset fue cargado con pandas. Las columnas categóricas como Education, EmploymentType, MaritalStatus, LoanPurpose y las columnas binarias como HasMortgage, HasDependents, HasCoSigner fueron codificadas usando Label Encoding. Los datos fueron divididos en 80% para entrenamiento y 20% para prueba usando train_test_split con random state 42. Se aplicó StandardScaler para normalizar todas las variables numéricas de entrada.</p>
     </div>
 </div>
 
@@ -79,48 +76,21 @@
 
     <div class="form-grid">
         <form action="/logistic-regression/application" method="POST">
-            <div class="form-group">
-                <label>Age</label>
-                <input type="number" name="age" placeholder="e.g. 35" required>
-            </div>
-            <div class="form-group">
-                <label>Income (USD/year)</label>
-                <input type="number" name="income" placeholder="e.g. 55000" required>
-            </div>
-            <div class="form-group">
-                <label>Loan Amount (USD)</label>
-                <input type="number" name="loan_amount" placeholder="e.g. 20000" required>
-            </div>
-            <div class="form-group">
-                <label>Credit Score</label>
-                <input type="number" name="credit_score" placeholder="e.g. 650" required>
-            </div>
-            <div class="form-group">
-                <label>Months Employed</label>
-                <input type="number" name="months_employed" placeholder="e.g. 24" required>
-            </div>
-            <div class="form-group">
-                <label>Number of Credit Lines</label>
-                <input type="number" name="num_credit_lines" placeholder="e.g. 3" required>
-            </div>
-            <div class="form-group">
-                <label>Interest Rate (%)</label>
-                <input type="number" step="0.01" name="interest_rate" placeholder="e.g. 12.5" required>
-            </div>
-            <div class="form-group">
-                <label>Loan Term (months)</label>
-                <input type="number" name="loan_term" placeholder="e.g. 36" required>
-            </div>
-            <div class="form-group">
-                <label>Debt-to-Income Ratio</label>
-                <input type="number" step="0.01" name="dti_ratio" placeholder="e.g. 0.35" required>
-            </div>
+            <div class="form-group"><label>Age</label><input type="number" name="age" placeholder="e.g. 35" required></div>
+            <div class="form-group"><label>Income (USD/year)</label><input type="number" name="income" placeholder="e.g. 55000" required></div>
+            <div class="form-group"><label>Loan Amount (USD)</label><input type="number" name="loan_amount" placeholder="e.g. 20000" required></div>
+            <div class="form-group"><label>Credit Score</label><input type="number" name="credit_score" placeholder="e.g. 650" required></div>
+            <div class="form-group"><label>Months Employed</label><input type="number" name="months_employed" placeholder="e.g. 24" required></div>
+            <div class="form-group"><label>Number of Credit Lines</label><input type="number" name="num_credit_lines" placeholder="e.g. 3" required></div>
+            <div class="form-group"><label>Interest Rate (%)</label><input type="number" step="0.01" name="interest_rate" placeholder="e.g. 12.5" required></div>
+            <div class="form-group"><label>Loan Term (months)</label><input type="number" name="loan_term" placeholder="e.g. 36" required></div>
+            <div class="form-group"><label>Debt-to-Income Ratio</label><input type="number" step="0.01" name="dti_ratio" placeholder="e.g. 0.35" required></div>
             <button type="submit">Predict</button>
         </form>
 
         <div class="form-guide">
             <h4>How to use this form</h4>
-            <p>Enter the client's financial data to predict whether they will default on their loan. Use the typical ranges below as a guide:</p>
+            <p>Enter the client's financial data to predict whether they will default on their loan.</p>
             <table class="guide-table">
                 <thead><tr><th>Field</th><th>Typical Range</th></tr></thead>
                 <tbody>
@@ -135,7 +105,7 @@
                     <tr><td>DTI Ratio</td><td>0.10 — 0.90</td></tr>
                 </tbody>
             </table>
-            <p class="form-guide-note">The model was trained with 255,347 real loan records. Values outside these ranges may produce less accurate predictions.</p>
+            <p class="form-guide-note">The model was trained with 255,347 real loan records.</p>
         </div>
     </div>
 </div>
