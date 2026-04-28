@@ -1,0 +1,102 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="intro">
+    <h2>Clustering Application — Customer Segmentation</h2>
+    <p>Grouping customers by age and annual spending using K-Means with a dataset of 1,000 records.</p>
+</section>
+
+<hr class="section-divider">
+
+<div class="use-case-container">
+    <div class="use-case-block">
+        <h3>Problem Description</h3>
+        <p>This application uses a dataset of 1,000 customers to identify natural groups based on their age and annual spending. Customer segmentation allows businesses to design targeted marketing strategies for each group.</p>
+    </div>
+
+    <div class="use-case-block">
+        <h3>Dataset Explanation</h3>
+        <p>The dataset contains 1,000 customer records with two numerical features: Age (18 - 70 years) and Annual Spending in USD (500 - 15,000). Data was normalized using StandardScaler before training to ensure both features contribute equally to the distance calculation.</p>
+    </div>
+
+    <div class="use-case-block">
+        <h3>Model Training</h3>
+        <p>A K-Means model was trained with K=3 clusters using Scikit-learn. The model used n_init=10 and random_state=42 for reproducibility.</p>
+    </div>
+</div>
+
+<hr class="section-divider">
+
+<div class="use-case-container">
+    <div class="use-case-block">
+        <h3>Cluster Results</h3>
+    </div>
+
+    <div class="use-case-grid">
+        {% for cluster in summary %}
+        <div class="use-case-card">
+            <h4>{{ cluster.name }}</h4>
+            <p>{{ cluster.count }} customers</p>
+            <p style="color:#888; font-size:0.85rem;">Avg Age: {{ cluster.avg_age }} | Avg Spending: ${{ cluster.avg_spending }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="use-case-block" style="margin-top:2rem;">
+        <h3>Centroids</h3>
+        <table class="guide-table" style="width:60%;">
+            <thead><tr><th>Cluster</th><th>Age (avg)</th><th>Annual Spending (avg)</th></tr></thead>
+            <tbody>
+                {% for c in centroids %}
+                <tr>
+                    <td>{{ c.name }}</td>
+                    <td>{{ c.age }}</td>
+                    <td>${{ c.spending }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="use-case-block" style="margin-top:2rem;">
+        <h3>Cluster Assignment Table (first 20 records)</h3>
+        <div style="overflow-x:auto;">
+            <table class="guide-table" style="width:100%;">
+                <thead>
+                    <tr><th>#</th><th>Age</th><th>Annual Spending</th><th>Cluster</th></tr>
+                </thead>
+                <tbody>
+                    {% for row in table_data %}
+                    <tr>
+                        <td>{{ row.id }}</td>
+                        <td>{{ row.age }}</td>
+                        <td>${{ row.spending }}</td>
+                        <td>
+                            {% if row.cluster == 0 %}
+                            <span style="color:#5DCAA5; font-weight:500;">{{ summary[0].name }}</span>
+                            {% elif row.cluster == 1 %}
+                            <span style="color:#EF9F27; font-weight:500;">{{ summary[1].name }}</span>
+                            {% else %}
+                            <span style="color:#85B7EB; font-weight:500;">{{ summary[2].name }}</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="use-case-block" style="margin-top:2rem;">
+        <h3>Scatter Plot — Clusters and Centroids</h3>
+    </div>
+    <div class="graph-container">
+        <img src="{{ url_for('static', filename='images/app_clusters.png') }}" alt="Customer clusters scatter plot">
+    </div>
+
+    <div class="use-case-block" style="margin-top:1.5rem;">
+        <h3>Interpretation of Results</h3>
+        <p>The model identified three distinct customer segments. The first group consists of younger customers (avg age 26.4) with lower annual spending (avg $2,238). The second group represents middle-aged customers (avg age 43.4) with moderate spending (avg $6,600). The third group contains older customers (avg age 61.3) with the highest spending levels (avg $12,010). These segments can be used to design targeted promotions and personalized marketing strategies for each customer profile.</p>
+    </div>
+</div>
+{% endblock %}

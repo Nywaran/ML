@@ -1,0 +1,57 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="intro">
+    <h2>Unsupervised Learning — Basic Concepts</h2>
+    <p>Understanding how machines find patterns in data without labeled examples.</p>
+</section>
+
+<hr class="section-divider">
+
+<div class="use-case-container">
+
+    <div class="use-case-block">
+        <h3>What is Unsupervised Learning?</h3>
+        <p>Unsupervised learning is a type of Machine Learning where the model is trained using data that has no labels or predefined correct answers. Instead of learning from examples, the algorithm finds hidden patterns and structures in the data on its own. It is used when we do not know in advance how the data should be grouped.</p>
+    </div>
+
+    <div class="use-case-block">
+        <h3>What is Clustering?</h3>
+        <p>Clustering is an unsupervised learning technique that groups data points based on their similarity. Points within the same cluster are more similar to each other than to points in other clusters. Clustering is widely used in customer segmentation, anomaly detection, and data compression.</p>
+    </div>
+
+    <div class="use-case-block">
+        <h3>What is K-Means?</h3>
+        <p>K-Means is one of the most popular clustering algorithms. It divides the data into K groups by iteratively assigning each data point to the nearest centroid and then updating the centroids based on the mean of the points in each group. The algorithm repeats this process until the centroids no longer change significantly.</p>
+    </div>
+
+    <div class="use-case-grid">
+        <div class="use-case-card">
+            <h4>Centroids</h4>
+            <p>A centroid is the center point of a cluster. It is calculated as the mean of all data points assigned to that cluster. In each iteration, centroids are updated to reflect the new center of their group.</p>
+        </div>
+        <div class="use-case-card">
+            <h4>Euclidean Distance</h4>
+            <p>The Euclidean distance measures how far apart two points are in space. In K-Means, each data point is assigned to the cluster whose centroid is closest: d = √((x2-x1)² + (y2-y1)²)</p>
+        </div>
+        <div class="use-case-card">
+            <h4>Iterative Process</h4>
+            <p>K-Means works in repeated steps: assign each point to the nearest centroid, recalculate centroids, and repeat. The process stops when assignments no longer change between iterations.</p>
+        </div>
+        <div class="use-case-card">
+            <h4>Variance and Convergence</h4>
+            <p>Variance (SSE — Sum of Squared Errors) measures how compact the clusters are. As iterations progress, variance decreases. When it stops decreasing, the algorithm has converged and found stable clusters.</p>
+        </div>
+    </div>
+
+    <div class="use-case-block" style="margin-top:2rem;">
+        <h3>Real-World Applications</h3>
+        <p>K-Means is used in customer segmentation to group buyers by behavior, in image compression to reduce the number of colors, in document classification to group similar texts, and in anomaly detection to identify unusual patterns in data.</p>
+    </div>
+
+</div>
+
+<div style="text-align:center; margin-top:2rem;">
+    <a href="/unsupervised/manual" class="btn-back">See Manual Exercise →</a>
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{
+    "summary": [
+        {
+            "name": "Young & Low Spending",
+            "count": 340,
+            "avg_age": 26.4,
+            "avg_spending": "2,238"
+        },
+        {
+            "name": "Mid-Age & Moderate",
+            "count": 334,
+            "avg_age": 43.4,
+            "avg_spending": "6,600"
+        },
+        {
+            "name": "Senior & High Spending",
+            "count": 326,
+            "avg_age": 61.3,
+            "avg_spending": "12,010"
+        }
+    ],
+    "centroids": [
+        {
+            "name": "Mid-Age & Moderate",
+            "age": 43.4,
+            "spending": "6,600"
+        },
+        {
+            "name": "Senior & High Spending",
+            "age": 61.3,
+            "spending": "12,010"
+        },
+        {
+            "name": "Young & Low Spending",
+            "age": 26.4,
+            "spending": "2,238"
+        }
+    ],
+    "table_data": [
+        {"id": 1, "age": 43, "spending": "6,911", "cluster": 1},
+        {"id": 2, "age": 67, "spending": "10,168", "cluster": 2},
+        {"id": 3, "age": 56, "spending": "13,965", "cluster": 2},
+        {"id": 4, "age": 38, "spending": "6,777", "cluster": 1},
+        {"id": 5, "age": 51, "spending": "4,447", "cluster": 1},
+        {"id": 6, "age": 70, "spending": "10,041", "cluster": 2},
+        {"id": 7, "age": 47, "spending": "4,837", "cluster": 1},
+        {"id": 8, "age": 50, "spending": "8,660", "cluster": 1},
+        {"id": 9, "age": 62, "spending": "13,371", "cluster": 2},
+        {"id": 10, "age": 27, "spending": "758", "cluster": 0},
+        {"id": 11, "age": 54, "spending": "13,586", "cluster": 2},
+        {"id": 12, "age": 31, "spending": "1,526", "cluster": 0},
+        {"id": 13, "age": 45, "spending": "7,570", "cluster": 1},
+        {"id": 14, "age": 63, "spending": "12,108", "cluster": 2},
+        {"id": 15, "age": 56, "spending": "11,990", "cluster": 2},
+        {"id": 16, "age": 60, "spending": "13,703", "cluster": 2},
+        {"id": 17, "age": 33, "spending": "1,146", "cluster": 0},
+        {"id": 18, "age": 68, "spending": "13,567", "cluster": 2},
+        {"id": 19, "age": 61, "spending": "14,066", "cluster": 2},
+        {"id": 20, "age": 22, "spending": "2,498", "cluster": 0}
+    ]
+}
